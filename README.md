@@ -9,8 +9,8 @@
   - HTTP (port 80) for NGINX.
   - Application ports (e.g., 3000 for frontend, 3001 for backend) for internal testing.
 Result
-(<Screenshots/Screenshot 2026-05-11 025052.png>)
-(<Screenshots/Screenshot 2026-05-11 025111.png>)
+![  ](<Screenshots/Screenshot 2026-05-11 025052.png>)
+![  ](<Screenshots/Screenshot 2026-05-11 025111.png>)
 
 ## MERN Application Deployment
 ### Databse (MongoDB)
@@ -34,7 +34,7 @@ Result
    }
    ```
 Result
-(<Screenshots/Screenshot 2026-05-10 211243.png>)
+![  ](<Screenshots/Screenshot 2026-05-10 211243.png>)
 ### Backend (Express)
 
 1. SSH into the backend EC2 instance.
@@ -60,10 +60,10 @@ Result
    pm2 save
    pm2 startup systemd
    ```
-   (<Screenshots/Screenshot 2026-05-10 231749.png>)
+   ![  ](<Screenshots/Screenshot 2026-05-10 231749.png>)
 Result
-(<Screenshots/Screenshot 2026-05-10 222209.png>)
-(<Screenshots/Screenshot 2026-05-10 224423.png>)
+![  ](<Screenshots/Screenshot 2026-05-10 222209.png>)
+![  ](<Screenshots/Screenshot 2026-05-10 224423.png>)
 ### Frontend (React)
 
 1. SSH into the frontend EC2 instance.
@@ -88,8 +88,8 @@ Result
    npm run build
    ```
 Result
-(<Screenshots/Screenshot 2026-05-11 004032.png>)
-(<Screenshots/Screenshot 2026-05-10 234419.png>)
+![  ](<Screenshots/Screenshot 2026-05-11 004032.png>)
+![  ](<Screenshots/Screenshot 2026-05-10 234419.png>)
 
 ## NGINX Reverse Proxy Configuration
 
@@ -124,7 +124,7 @@ Install and configure NGINX on a chosen entry-point instance (often the frontend
    sudo systemctl reload nginx
    ```
 Result
-(<Screenshots/Screenshot 2026-05-11 004148.png>)
+![  ](<Screenshots/Screenshot 2026-05-11 004148.png>)
 
 ## High Availability with AWS Application Load Balancer
 
@@ -135,14 +135,14 @@ Result
    - Port: 80
    - Health check path: /addexperience
    - Register all frontend instances.
-   (<Screenshots/Screenshot 2026-05-11 023208.png>)
+   ![  ](<Screenshots/Screenshot 2026-05-11 023208.png>)
 3. Create an Application Load Balancer:
    - Scheme: Internet-facing.
    - At least 3 subnets in different AZs.
    - Listener on port 80 forwarding to the frontend target group.
-   (<Screenshots/Screenshot 2026-05-11 013127.png>)
+   ![  ](<Screenshots/Screenshot 2026-05-11 013127.png>)
 Result
-(<Screenshots/Screenshot 2026-05-11 021822.png>)
+![  ](<Screenshots/Screenshot 2026-05-11 021822.png>)
 
 ## Secure Hosting with Cloudflare
 
@@ -151,13 +151,13 @@ Result
 3. In Cloudflare DNS, create:
    - `A` record for `travelmoney` pointing to your NGINX/entry EC2 public IP (or ALB later).
    - `CNAME` record for `api` pointing to the loadbalancer.
-   (<Screenshots/Screenshot 2026-05-11 025426.png>)
+   ![  ](<Screenshots/Screenshot 2026-05-11 025426.png>)
 4. In Cloudflare SSL/TLS settings:
    - Choose an SSL mode (e.g., Flexible or Full).
    - Enable "Always Use HTTPS" if desired.
 Result
-(<Screenshots/Screenshot 2026-05-11 021802.png>)
-(<Screenshots/image.png>)
+![  ](<Screenshots/Screenshot 2026-05-11 021802.png>)
+![  ](<Screenshots/image.png>)
 
 ## Architechture Diagram
-(ArchitechtureDiagram.png)
+![  ](ArchitechtureDiagram.png)
