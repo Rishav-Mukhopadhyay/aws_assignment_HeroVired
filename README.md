@@ -23,16 +23,31 @@
    git clone https://github.com/Rishav-Mukhopadhyay/aws_assignment_HeroVired.git
    cd aws_assignment_HeroVired/backend
    ```
-4. Add environment varialbles
-   ```bash
-   nano .env
-   ```
-   ```bash
-   MONGO_URI='mongodb+srv://rishav1994sonai_db_user:eud40m7e2Ygheflj@travelmemory.x5yt4i8.mongodb.net/?appName=TravelMemory'
-   PORT=3001
-   ```
-5. Install dependencies and start the server:
+4. Install dependencies and start the server:
    ```bash
    npm install
    node index.js
+   ```
+### Frontend (React)
+
+1. SSH into the frontend EC2 instance.
+2. Install Node.js and npm:
+   ```bash
+   sudo apt update
+   sudo apt install -y nodejs npm
+   ```
+3. Clone the frontend repository:
+   ```bash
+   git clone https://github.com/Rishav-Mukhopadhyay/aws_assignment_HeroVired.git
+   cd aws_assignment_HeroVired/frontend
+   ```
+4. Configure API base URL to point to the backend (later via NGINX/ALB, e.g. `/api`).
+5. Install dependencies and start the dev server:
+   ```bash
+   npm install
+   npm start
+   ```
+6. For production, build the React app and serve it through NGINX or a dedicated Node server:
+   ```bash
+   npm run build
    ```
