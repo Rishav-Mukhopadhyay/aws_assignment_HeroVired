@@ -28,6 +28,13 @@
    npm install
    node index.js
    ```
+5. Use pm2 to keep the backend alive:
+   ```bash
+   sudo npm install -g pm2
+   pm2 start index.js --name mern-backend
+   pm2 save
+   pm2 startup systemd
+   ```
 ### Frontend (React)
 
 1. SSH into the frontend EC2 instance.
@@ -83,3 +90,13 @@ Install and configure NGINX on a chosen entry-point instance (often the frontend
    sudo nginx -t
    sudo systemctl reload nginx
    ```
+## Secure Hosting with Cloudflare
+
+1. Add your domain to Cloudflare.
+2. Update nameservers at your domain registrar to the Cloudflare nameservers.
+3. In Cloudflare DNS, create:
+   - `A` record for `@` pointing to your NGINX/entry EC2 public IP (or ALB later).
+   - `A` record for `www` pointing to the same target.
+4. In Cloudflare SSL/TLS settings:
+   - Choose an SSL mode (e.g., Flexible or Full).
+   - Enable "Always Use HTTPS" if desired.
