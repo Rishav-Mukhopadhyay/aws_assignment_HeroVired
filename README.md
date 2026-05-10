@@ -51,3 +51,35 @@
    ```bash
    npm run build
    ```
+## NGINX Reverse Proxy Configuration
+
+Install and configure NGINX on a chosen entry-point instance (often the frontend EC2):
+
+1. Install NGINX:
+   ```bash
+   sudo apt update
+   sudo apt install -y nginx
+   ```
+2. Edit the default site configuration:
+   ```bash
+   sudo nano /etc/nginx/sites-available/default
+   ```
+3. Example configuration:
+   ```nginx
+   server {
+       listen 80;
+
+       location /api {
+           proxy_pass http://<BACKEND_PRIVATE_IP>:<BACKEND_PORT>;
+       }
+
+       location / {
+           proxy_pass http://<FRONTEND_PRIVATE_IP>:3000;
+       }
+   }
+   ```
+4. Test and reload:
+   ```bash
+   sudo nginx -t
+   sudo systemctl reload nginx
+   ```
