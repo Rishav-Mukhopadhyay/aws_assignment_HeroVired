@@ -21,12 +21,15 @@
 3. Clone the backend repository:
    ```bash
    git clone https://github.com/Rishav-Mukhopadhyay/aws_assignment_HeroVired.git
-   cd backend
+   cd aws_assignment_HeroVired/backend
    ```
-4. Configure MongoDB connection:
+4. Add environment varialbles
    ```bash
-   export MONGO_URI="your_mongodb_uri"
-   # optionally add to ~/.bashrc for persistence
+   nano .env
+   ```
+   ```bash
+   MONGO_URI='mongodb+srv://rishav1994sonai_db_user:eud40m7e2Ygheflj@travelmemory.x5yt4i8.mongodb.net/?appName=TravelMemory'
+   PORT=3001
    ```
 5. Install dependencies and start the server:
    ```bash
